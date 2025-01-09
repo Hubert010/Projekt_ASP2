@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjektASP123.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rezerwacja auta</h1>
+
+<p>
+    <a asp-action="Create">dodaj nowa rezerwacje</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.CarId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReservationId">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.ReservationId">szczegoly</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReservationId">usun</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
