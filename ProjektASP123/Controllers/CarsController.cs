@@ -49,9 +49,7 @@ namespace ProjektASP123.Controllers
             return View();
         }
 
-        // POST: Cars/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CarId,Model,Brand,Year,Availability")] Car car)
@@ -82,8 +80,7 @@ namespace ProjektASP123.Controllers
         }
 
         // POST: Cars/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CarId,Model,Brand,Year,Availability")] Car car)
